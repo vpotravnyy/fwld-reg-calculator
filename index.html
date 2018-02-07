@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#292c31">
+    <link rel="shortcut icon" href="https://forum.fwld.ru/uploads/monthly_2018_01/favicon_ff.ico.5bacb63858315e283df9a4ca8fd2c1c4.ico">
+
+    <title>Калькулятор регионов | Forgotten World - Сервер Minecraft</title>
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        padding: 0 20px;
+        font-size: 14px;
+        line-height: 18px;
+        color: #d7d7d7;
+        background-color: #212327;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: subpixel-antialiased !important;
+      }
+
+      .box {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #2d3035;
+        border-radius: 3px;
+        border: 1px solid #1f2227;
+      }
+
+      .header {
+        max-width: 900px;
+        margin: 35px auto 35px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 300;
+        color: #9a9a9a;
+        line-height: 1.2;
+      }
+
+      .label {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: 300;
+        color: #9a9a9a;
+        line-height: 1.4;
+      }
+
+      .input {
+        float:right;
+        width: 70px;
+        padding: 4px 6px;
+        color: #d7d7d7;
+        background: #212327;
+        border: 1px solid #1f2227;
+        font-size: 14px;
+        border-radius: 0px;
+      }
+
+      .priceItem {
+        margin: 4px 0;
+      }
+
+      .priceSubItem {
+        opacity: 0.7
+      }
+
+      .permalinkContainer {
+        margin: -10px auto 20px;
+        max-width: 900px;
+        text-align: center;
+      }
+
+      .permalink {
+        display: inline-block;
+        color: #9a9a9a;
+        opacity: 0.25;
+        text-decoration: none;
+        transition: opacity 0.1s, border-color 0.1s;
+        border-bottom: 1px solid transparent;
+      }
+      .permalink:hover,
+      .permalink:focus {
+        opacity: 0.75;
+        border-color: #9a9a9a
+      }
+    </style>
+
+    <style media="screen">
+      input[type=range] {
+        -webkit-appearance: none;
+        width: 100%;
+        margin: 5.15px 0;
+      }
+      input[type=range]:focus {
+        outline: none;
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 7.7px;
+        cursor: pointer;
+        box-shadow: 0.9px 0.9px 1.7px rgba(0, 34, 0, 0), 0px 0px 0.9px rgba(0, 60, 0, 0);
+        background: #212327;
+        border: 1.1px solid #1f2227;
+      }
+      input[type=range]::-webkit-slider-thumb {
+        box-shadow: 1.7px 1.7px 2.9px #000000, 0px 0px 1.7px #0d0d0d;
+        border: 2.5px solid #2e82ff;
+        height: 18px;
+        width: 18px;
+        border-radius: 18px;
+        background: #212327;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -6.25px;
+      }
+      input[type=range]:focus::-webkit-slider-runnable-track {
+        background: #26282d;
+      }
+      input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 7.7px;
+        cursor: pointer;
+        box-shadow: 0.9px 0.9px 1.7px rgba(0, 34, 0, 0), 0px 0px 0.9px rgba(0, 60, 0, 0);
+        background: #212327;
+        border-radius: 3.3px;
+        border: 1.1px solid #1f2227;
+      }
+      input[type=range]::-moz-range-thumb {
+        box-shadow: 1.7px 1.7px 2.9px #000000, 0px 0px 1.7px #0d0d0d;
+        border: 2.5px solid #2e82ff;
+        height: 18px;
+        width: 18px;
+        border-radius: 18px;
+        background: #212327;
+        cursor: pointer;
+      }
+      input[type=range]::-ms-track {
+        width: 100%;
+        height: 7.7px;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+      }
+      input[type=range]::-ms-fill-lower {
+        background: #1c1e21;
+        border: 1.1px solid #1f2227;
+        border-radius: 6.6px;
+        box-shadow: 0.9px 0.9px 1.7px rgba(0, 34, 0, 0), 0px 0px 0.9px rgba(0, 60, 0, 0);
+      }
+      input[type=range]::-ms-fill-upper {
+        background: #212327;
+        border: 1.1px solid #1f2227;
+        border-radius: 6.6px;
+        box-shadow: 0.9px 0.9px 1.7px rgba(0, 34, 0, 0), 0px 0px 0.9px rgba(0, 60, 0, 0);
+      }
+      input[type=range]::-ms-thumb {
+        box-shadow: 1.7px 1.7px 2.9px #000000, 0px 0px 1.7px #0d0d0d;
+        border: 2.5px solid #2e82ff;
+        height: 18px;
+        width: 18px;
+        border-radius: 18px;
+        background: #212327;
+        cursor: pointer;
+        height: 7.7px;
+      }
+      input[type=range]:focus::-ms-fill-lower {
+        background: #212327;
+      }
+      input[type=range]:focus::-ms-fill-upper {
+        background: #26282d;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <h1 class="header">
+      Калькулятор стоимости регионов
+    </h1>
+
+    <div class="box">
+      <input
+        type="number"
+        id="x"
+        name="x"
+        class="input"
+        min="10"
+        max="16000"
+      >
+      <label for="x" class="label">Ширина по X</label>
+      <input
+        type="range"
+        id="x_range"
+        name="x"
+        min="10"
+        max="2000"
+      >
+    </div>
+
+    <div class="box">
+      <input
+        type="number"
+        id="z"
+        name="z"
+        class="input"
+        min="10"
+        max="16000"
+      >
+      <label for="z" class="label">Ширина по Z</label>
+      <input
+        type="range"
+        id="z_range"
+        name="z"
+        min="10"
+        max="2000"
+      >
+    </div>
+
+    <div class="box">
+      <input
+        type="number"
+        id="y"
+        name="y"
+        class="input"
+        min="1"
+        max="512"
+      >
+      <label for="y" class="label">Высота</label>
+      <input
+        type="range"
+        id="y_range"
+        name="y"
+        min="1"
+        max="512"
+      >
+    </div>
+
+
+    <div class="box">
+      <label class="label">Стоимость</label>
+      <div class="priceItem">
+        <span id='grass'>0</span> зелени
+      </div>
+      <div class="priceItem">
+        <span id='diamond'>0</span> алмазов
+        <small class='priceSubItem'>
+          (около <span id='stacks'>0</span> стаков)
+        </small>
+      </div>
+      <div class="priceItem">
+        <span id='rubles'>0</span> рублей
+      </div>
+    </div>
+
+    <div class="permalinkContainer">
+      <a href="#" class="permalink" id="permalink">
+        Постоянная ссылка
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      (function() {
+        var DIAMOND_PRICE = 1.8 // Put diamond price in rubles here
+
+        var size = {
+          x: 100,
+          y: 512,
+          z: 100
+        }
+
+        var $body = document.body
+        var $inputs = {
+          x_input: document.getElementById("x"),
+          y_input: document.getElementById("y"),
+          z_input: document.getElementById("z"),
+          x_range: document.getElementById("x_range"),
+          y_range: document.getElementById("y_range"),
+          z_range: document.getElementById("z_range")
+        }
+        var $grass = document.getElementById("grass")
+        var $diamond = document.getElementById("diamond")
+        var $rubles = document.getElementById("rubles")
+        var $stacks = document.getElementById("stacks")
+        var $permalink = document.getElementById("permalink")
+
+        init()
+
+        function init () {
+          getInitialData()
+          printPrice(calculatePrice())
+          updatePermalink()
+          $body.addEventListener("input", onChange)
+        }
+
+        function onChange (e) {
+          var name = e.target.name
+          var value = e.target.value
+          saveValue(name, value)
+          printPrice(calculatePrice())
+          updatePermalink()
+        }
+
+        function saveValue (name, value) {
+          value = value | 0
+          if (name === "y" && value > 512) value = 512
+          else if (value > 16000) value = 16000
+          size[name] = value
+          $inputs[name + '_input'].value = value
+          $inputs[name + '_range'].value = value
+        }
+
+        function calculatePrice () {
+          with (size) {
+            return Math.ceil(x*z*10 + x*y*z*10/512)
+          }
+        }
+
+        function formatPrice(price) {
+          return price.toLocaleString()
+        }
+
+        function printPrice (price) {
+          $grass.innerText = formatPrice(price)
+          $diamond.innerText = formatPrice((price / 1000) | 0)
+          $stacks.innerText = Math.round(price / 64000)
+          $rubles.innerText = formatPrice((price / 1000 * DIAMOND_PRICE) | 0)
+
+        }
+
+        function updatePermalink() {
+          var hash = "#x=" + size.x + "&y=" + size.y + "&z=" + size.z
+          window.location.hash = hash
+          $permalink.setAttribute("href", hash)
+        }
+
+        function getInitialData () {
+          var location = window.location.hash.substring(1)
+          if (location) {
+            location.split('&').forEach(function (record) {
+              saveValue.apply(null, record.split('='))
+            })
+          } else {
+            saveValue("x", size.x)
+            saveValue("y", size.y)
+            saveValue("z", size.z)
+          }
+        }
+      })()
+    </script>
+  </body>
+</html>
