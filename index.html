@@ -292,12 +292,14 @@
         var $stacks = document.getElementById("stacks")
         var $permalink = document.getElementById("permalink")
 
+        var updatePermalinkDebounced = debounce(updatePermalink, 250)
+
         init()
 
         function init () {
           getInitialData()
           printPrice(calculatePrice())
-          updatePermalink()
+          updatePermalinkDebounced()
           $body.addEventListener("input", onChange)
         }
 
@@ -306,7 +308,7 @@
           var value = e.target.value
           saveValue(name, value)
           printPrice(calculatePrice())
-          updatePermalink()
+          updatePermalinkDebounced()
         }
 
         function saveValue (name, value) {
@@ -353,6 +355,21 @@
             saveValue("y", size.y)
             saveValue("z", size.z)
           }
+        }
+
+        function debounce(func, wait, immediate) {
+        	var timeout
+        	return function() {
+        		var context = this, args = arguments
+        		var later = function() {
+        			timeout = null
+        			if (!immediate) func.apply(context, args)
+        		};
+        		var callNow = immediate && !timeout
+        		clearTimeout(timeout)
+        		timeout = setTimeout(later, wait)
+        		if (callNow) func.apply(context, args)
+        	}
         }
       })()
     </script>
