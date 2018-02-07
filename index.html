@@ -184,91 +184,93 @@
     </style>
   </head>
   <body>
-    <h1 class="header">
-      Калькулятор стоимости регионов
-    </h1>
+    <div class="main">
+      <h1 class="header">
+        Калькулятор стоимости регионов
+      </h1>
 
-    <div class="box">
-      <input
-        type="number"
-        id="x"
-        name="x"
-        class="input"
-        min="10"
-        max="16000"
-      >
-      <label for="x" class="label">Ширина по X</label>
-      <input
-        type="range"
-        id="x_range"
-        name="x"
-        min="10"
-        max="2000"
-      >
-    </div>
-
-    <div class="box">
-      <input
-        type="number"
-        id="z"
-        name="z"
-        class="input"
-        min="10"
-        max="16000"
-      >
-      <label for="z" class="label">Ширина по Z</label>
-      <input
-        type="range"
-        id="z_range"
-        name="z"
-        min="10"
-        max="2000"
-      >
-    </div>
-
-    <div class="box">
-      <input
-        type="number"
-        id="y"
-        name="y"
-        class="input"
-        min="1"
-        max="256"
-      >
-      <label for="y" class="label">Высота</label>
-      <input
-        type="range"
-        id="y_range"
-        name="y"
-        min="1"
-        max="256"
-      >
-    </div>
-
-
-    <div class="box">
-      <label class="label">Стоимость</label>
-      <div class="priceItem">
-        <span id='grass'>0</span> зелени
+      <div class="box">
+        <input
+          type="number"
+          id="x"
+          name="x"
+          class="input"
+          min="10"
+          max="16000"
+        >
+        <label for="x" class="label">Ширина по X</label>
+        <input
+          type="range"
+          id="x_range"
+          name="x"
+          min="10"
+          max="2000"
+        >
       </div>
-      <div class="priceItem">
-        <span id='diamond'>0</span> алмазов
-        <small class='priceSubItem'>
-          (около <span id='stacks'>0</span> стаков)
-        </small>
-      </div>
-      <div class="priceItem">
-        <span id='rubles'>0</span> рублей
-        <small class='priceSubItem'>
-          по курсу донат шопа
-        </small>
-      </div>
-    </div>
 
-    <div class="permalinkContainer">
-      <a href="#" class="permalink" id="permalink">
-        Постоянная ссылка
-      </a>
+      <div class="box">
+        <input
+          type="number"
+          id="z"
+          name="z"
+          class="input"
+          min="10"
+          max="16000"
+        >
+        <label for="z" class="label">Ширина по Z</label>
+        <input
+          type="range"
+          id="z_range"
+          name="z"
+          min="10"
+          max="2000"
+        >
+      </div>
+
+      <div class="box">
+        <input
+          type="number"
+          id="y"
+          name="y"
+          class="input"
+          min="1"
+          max="256"
+        >
+        <label for="y" class="label">Высота</label>
+        <input
+          type="range"
+          id="y_range"
+          name="y"
+          min="1"
+          max="256"
+        >
+      </div>
+
+
+      <div class="box">
+        <label class="label">Стоимость</label>
+        <div class="priceItem">
+          <span id='grass'>0</span> зелени
+        </div>
+        <div class="priceItem">
+          <span id='diamond'>0</span> алмазов
+          <small class='priceSubItem'>
+            (около <span id='stacks'>0</span> стаков)
+          </small>
+        </div>
+        <div class="priceItem">
+          <span id='rubles'>0</span> рублей
+          <small class='priceSubItem'>
+            по курсу донат шопа
+          </small>
+        </div>
+      </div>
+
+      <div class="permalinkContainer">
+        <a href="#" class="permalink" id="permalink">
+          Постоянная ссылка
+        </a>
+      </div>
     </div>
 
     <script type="text/javascript">
