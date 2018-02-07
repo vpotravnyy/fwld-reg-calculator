@@ -229,7 +229,7 @@
         name="y"
         class="input"
         min="1"
-        max="512"
+        max="256"
       >
       <label for="y" class="label">Высота</label>
       <input
@@ -237,7 +237,7 @@
         id="y_range"
         name="y"
         min="1"
-        max="512"
+        max="256"
       >
     </div>
 
@@ -273,7 +273,7 @@
 
         var size = {
           x: 100,
-          y: 512,
+          y: 256,
           z: 100
         }
 
@@ -313,7 +313,7 @@
 
         function saveValue (name, value) {
           value = value | 0
-          if (name === "y" && value > 512) value = 512
+          if (name === "y" && value > 256) value = 256
           else if (value > 16000) value = 16000
           size[name] = value
           $inputs[name + '_input'].value = value
