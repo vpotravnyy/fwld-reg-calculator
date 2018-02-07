@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#292c31">
     <link rel="shortcut icon" href="https://forum.fwld.ru/uploads/monthly_2018_01/favicon_ff.ico.5bacb63858315e283df9a4ca8fd2c1c4.ico">
-
     <title>Калькулятор регионов | Forgotten World - Сервер Minecraft</title>
-
     <style>
       html, body {
         height: 100%;
@@ -91,8 +89,7 @@
         border-color: #9a9a9a
       }
     </style>
-
-    <style media="screen">
+    <style>
       input[type=range] {
         -webkit-appearance: none;
         width: 100%;
@@ -177,9 +174,10 @@
       input[type=range]:focus::-ms-fill-upper {
         background: #26282d;
       }
-
+      input[type=range]::-moz-focus-outer {
+        border: 0;
+      }
     </style>
-
   </head>
   <body>
     <h1 class="header">
@@ -257,6 +255,9 @@
       </div>
       <div class="priceItem">
         <span id='rubles'>0</span> рублей
+        <small class='priceSubItem'>
+          по курсу донат шопа
+        </small>
       </div>
     </div>
 
